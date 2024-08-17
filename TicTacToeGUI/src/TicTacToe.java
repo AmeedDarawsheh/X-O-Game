@@ -7,20 +7,12 @@ public class TicTacToe extends JFrame{
 
 		final  int x =1280,y=720 ;
 		private JButton buttons [][] =new JButton[3][3];
-		private JButton buttonss [][] =new JButton[3][3];
+	//	private JButton buttonss [][] =new JButton[3][3];
 		
 		
 		JLabel namel,playerscorel,computerscorel;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		JPanel l1 ;
 		 JPanel l2  ;
@@ -28,15 +20,7 @@ public class TicTacToe extends JFrame{
 		 JPanel l4  ;
 		 JPanel l5  ;
 		 JPanel l6  ;
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 		JLabel label ;
 		JPanel A ;
@@ -174,7 +158,7 @@ public class TicTacToe extends JFrame{
 		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.print("hi java");
+		System.out.print("hi Ameed");
 		new TicTacToe();
 	}
 }
