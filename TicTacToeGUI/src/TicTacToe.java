@@ -7,34 +7,9 @@ public class TicTacToe extends JFrame{
 
 		final  int x =1280,y=720 ;
 		private JButton buttons [][] =new JButton[3][3];
-		private JButton buttonss [][] =new JButton[3][3];
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		JLabel namel,playerscorel,computerscorel;
-		
-
+	//	private JButton buttonss [][] =new JButton[3][3];
+			
+		JLabel namel,playerscorel,computerscorel;		
 		
 		JPanel l1 ;
 		 JPanel l2  ;
