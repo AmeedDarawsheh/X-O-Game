@@ -1,23 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-
 @SuppressWarnings("serial")
-public class TicTacToe extends JFrame{
+public class TicTacToeGUI extends JFrame{
 
 		final  int x =1280,y=720 ;
 		private JButton buttons [][] =new JButton[3][3];
 		//private JButton buttonss [][] =new JButton[3][3];
 		JLabel namel,playerscorel,computerscorel;		
-		
+	
 		JPanel l1 ;
 		 JPanel l2  ;
 		 JPanel l3  ;
 		 JPanel l4  ;
 		 JPanel l5  ;
 		 JPanel l6  ;
-			
-		
+	
 		JLabel label ;
 		JPanel A ;
 	 	JPanel B ;
@@ -33,7 +31,7 @@ public class TicTacToe extends JFrame{
 	 	ButtonGroup group ;
 	 	JPanel inner ;
 	 	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);		
-		public TicTacToe() {	
+		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
 		 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 	setVisible(true);
@@ -49,10 +47,7 @@ public class TicTacToe extends JFrame{
 			 B = new JPanel () ;
 			 C = new JPanel () ;
 			 inner = new JPanel();
-			 B.setLayout(new GridLayout(3,3));
-			 
-			 
-			 
+			 B.setLayout(new GridLayout(3,3));		 
 			 
 			  l1 = new JPanel () ;
 			  l2 = new JPanel () ;
@@ -84,11 +79,7 @@ public class TicTacToe extends JFrame{
 			 C.add(l1);
 			 C.add(l3);
 			 C.add(l5);
-			 C.add(l6);
-			 
-			 
-//			 
-//			 
+			 C.add(l6);			 
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
 //			computerscorel = new JLabel("computerscore");
@@ -108,9 +99,7 @@ public class TicTacToe extends JFrame{
 //		 	playerscorep.add(playerscore);
 //		 	computerscorep = new JPanel () ;
 //		 	computerscorep.add(computerscorel);
-//		 	computerscorep.add(computerscore);
-//		 	
-		 	
+//		 	computerscorep.add(computerscore);		 			 	
 //		 	play = new JButton ("play");
 //		 	reset = new JButton ("reset");
 //		 	Quit = new JButton ("Quit");	
@@ -132,14 +121,10 @@ public class TicTacToe extends JFrame{
 //		 	C.add(reset);
 //		 	C.add(Quit);
 //		 	C.add(playerscorep);
-//		 	C.add(computerscorep);	
-			
-		 	
-		 	
+//		 	C.add(computerscorep);						 			 	
 		 	add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
-			add(C,BorderLayout.EAST);
-			
+			add(C,BorderLayout.EAST);			
 		 	for(int i = 0 ; i< 3 ; i++) {
 		 		for(int j = 0 ; j< 3 ; j++) {
 		 			buttons[i][j]=new JButton("1");		 			
@@ -147,14 +132,10 @@ public class TicTacToe extends JFrame{
 			 	}	
 		 	}
 	 	
-		}
-		
-		
-		
-		
+		}		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.print("hi Ameed");
-		new TicTacToe();
+		new TicTacToeGUI();
 	}
 }
