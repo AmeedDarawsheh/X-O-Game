@@ -1,6 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import javax.swing.*;
 @SuppressWarnings("serial")
 public class TicTacToeGUI extends JFrame{
 		final  int x =1280,y=720 ;
@@ -15,7 +14,7 @@ public class TicTacToeGUI extends JFrame{
 		JPanel l6  ;
 	
 		JLabel label ;
-	
+		
 		JPanel A ;
 	 	JPanel B ;
 	 	JPanel C ;
@@ -41,7 +40,7 @@ public class TicTacToeGUI extends JFrame{
 		 	setVisible(true);
 		 	setSize(x,y);
 		 	setMinimumSize(getSize());
-// 	JFrame c;
+			// 	JFrame c;
 		 	setResizable(false); 		
 			//setLayout(new FlowLayout());
 			 label = new JLabel ("XO-Game");
@@ -81,21 +80,12 @@ public class TicTacToeGUI extends JFrame{
 			 l3.add(reset);
 			 l3.add(Quit);
 			 C.add(l1);
-			 C.add(l3);
+			//  C.add(l3);
 			 C.add(l5);
-			 C.add(l6);
-		//	setResizable(true);
-/* ameed al daraswheh case 1 case 2 
-
- case 2 33 
- 
- 
- 
- 
- */			
+			 C.add(l6);		
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
-//			computerscorel = new JLabel("computerscore");
+//			computerscorel = new JLabel("computerscore");p
 //		 	
 //		 	name = new JTextField(15);
 //		 	playerscore = new JTextField(15);
