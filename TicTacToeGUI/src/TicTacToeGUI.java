@@ -8,7 +8,6 @@ public class TicTacToeGUI extends JFrame{
 		private JButton buttons [][] =new JButton[3][3];
 		//private JButton buttonss [][] =new JButton[3][3];
 		JLabel namel,playerscorel,computerscorel;		
-<<<<<<< Updated upstream:TicTacToeGUI/src/TicTacToeGUI.java
 		JPanel l1 ;
 		JPanel l2  ;
 		JPanel l3  ;
@@ -16,16 +15,6 @@ public class TicTacToeGUI extends JFrame{
 		JPanel l5  ;
 		JPanel l6  ;
 	
-=======
-		
-		 JPanel l1 ;
-		 JPanel l2  ;
-		 JPanel l3  ;
-		 JPanel l4  ;
-		 JPanel l5  ;
-		 JPanel l6  ;
-		 
->>>>>>> Stashed changes:TicTacToeGUI/src/TicTacToe.java
 		JLabel label ;
 	
 		JPanel A ;
@@ -96,12 +85,8 @@ public class TicTacToeGUI extends JFrame{
 			 C.add(l3);
 			 C.add(l5);
 			 C.add(l6);
-<<<<<<< Updated upstream:TicTacToeGUI/src/TicTacToeGUI.java
 
 			
-=======
-			 			 
->>>>>>> Stashed changes:TicTacToeGUI/src/TicTacToe.java
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
 //			computerscorel = new JLabel("computerscore");
@@ -143,13 +128,8 @@ public class TicTacToeGUI extends JFrame{
 //		 	C.add(reset);
 //		 	C.add(Quit);
 //		 	C.add(playerscorep);
-<<<<<<< Updated upstream:TicTacToeGUI/src/TicTacToeGUI.java
 //		 	C.add(computerscorep);
 			
-=======
-//		 	C.add(computerscorep);	
-					 	
->>>>>>> Stashed changes:TicTacToeGUI/src/TicTacToe.java
 		 	add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
 			add(C,BorderLayout.EAST);			
