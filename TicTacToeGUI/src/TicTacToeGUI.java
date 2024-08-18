@@ -129,7 +129,11 @@ public class TicTacToeGUI extends JFrame{
 //		 	C.add(Quit);
 //		 	C.add(playerscorep);
 //		 	C.add(computerscorep);
-			
+			//
+			 //
+			 //ameed
+			 // mohammad
+			 
 		 	add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
 			add(C,BorderLayout.EAST);			
