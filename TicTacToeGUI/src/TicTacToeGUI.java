@@ -85,7 +85,14 @@ public class TicTacToeGUI extends JFrame{
 			 C.add(l5);
 			 C.add(l6);
 		//	setResizable(true);
-			
+/* ameed al daraswheh case 1 case 2 
+
+ case 2 33 
+ 
+ 
+ 
+ 
+ */			
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
 //			computerscorel = new JLabel("computerscore");
