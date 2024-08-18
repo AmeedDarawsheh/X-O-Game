@@ -84,7 +84,7 @@ public class TicTacToeGUI extends JFrame{
 			 C.add(l3);
 			 C.add(l5);
 			 C.add(l6);
-			setResizable(true);
+		//	setResizable(true);
 			
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
