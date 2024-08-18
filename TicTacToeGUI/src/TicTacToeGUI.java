@@ -84,7 +84,7 @@ public class TicTacToeGUI extends JFrame{
 			 C.add(l3);
 			 C.add(l5);
 			 C.add(l6);
-
+			setResizable(true);
 			
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
@@ -138,7 +138,7 @@ public class TicTacToeGUI extends JFrame{
 			 	}	
 		 	}
 	 	
-		}		
+		}	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.print("hi Ameed");
