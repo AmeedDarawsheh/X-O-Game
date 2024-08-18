@@ -3,33 +3,37 @@ import java.awt.*;
 import java.util.*;
 @SuppressWarnings("serial")
 public class TicTacToeGUI extends JFrame{
-
 		final  int x =1280,y=720 ;
 		private JButton buttons [][] =new JButton[3][3];
 		//private JButton buttonss [][] =new JButton[3][3];
 		JLabel namel,playerscorel,computerscorel;		
-	
 		JPanel l1 ;
-		 JPanel l2  ;
-		 JPanel l3  ;
-		 JPanel l4  ;
-		 JPanel l5  ;
-		 JPanel l6  ;
+		JPanel l2  ;
+		JPanel l3  ;
+		JPanel l4  ;
+		JPanel l5  ;
+		JPanel l6  ;
 	
 		JLabel label ;
+	
 		JPanel A ;
 	 	JPanel B ;
 	 	JPanel C ;
+	
 	 	JTextField name ;
 	 	JTextField playerscore;
-	 	JTextField computerscore; 	
+	 	JTextField computerscore;
+	
 	 	JButton play ;
 	 	JButton reset;
 	 	JButton Quit ;	
+	
 	 	JRadioButton xg ;
 	 	JRadioButton o ;
 	 	ButtonGroup group ;
+	
 	 	JPanel inner ;
+	
 	 	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);		
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
@@ -79,7 +83,9 @@ public class TicTacToeGUI extends JFrame{
 			 C.add(l1);
 			 C.add(l3);
 			 C.add(l5);
-			 C.add(l6);			 
+			 C.add(l6);
+
+			
 //			namel = new JLabel("Name");
 //			playerscorel = new JLabel("playerscore");
 //			computerscorel = new JLabel("computerscore");
@@ -121,7 +127,8 @@ public class TicTacToeGUI extends JFrame{
 //		 	C.add(reset);
 //		 	C.add(Quit);
 //		 	C.add(playerscorep);
-//		 	C.add(computerscorep);						 			 	
+//		 	C.add(computerscorep);
+			
 		 	add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
 			add(C,BorderLayout.EAST);			
