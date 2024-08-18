@@ -1,4 +1,4 @@
 # X-O-Game
-بدي اخلص الانترفيس 
-بدي اضيف بار ومراحل للعبة
-بدي اضيف أصوات للعبة
+Edit ann finsh GUI
+Add Bar and levels ( high , med , easy)
+add sounds for win and lose
