@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
-public class TicTacToeGUI extends JFrame{
+public class TicTacToeGUI extends JFrame implements ActionListener{
 		private final  int x =1280,y=720 ;
 		private final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
@@ -17,13 +19,15 @@ public class TicTacToeGUI extends JFrame{
 		private	JMenuBar menuBar;
 		private JMenu menuFile,menuhelp,menuEdit;
 		private JMenuItem Hard,Easy,Medium;
+		private String scorename;	
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
 		 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 	setSize(x1,y1);
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
-//Bar
+		 	setLocationRelativeTo(null);
+		 	//Bar
 		 	menuBar= new JMenuBar();
 			Hard = new  JMenuItem("Hard");
 			Easy = new  JMenuItem("Easy");
@@ -41,7 +45,6 @@ public class TicTacToeGUI extends JFrame{
 			menuBar.add(menuEdit);
 			menuBar.add(menuhelp);	
 			setJMenuBar(menuBar);
-	 	
 		 	A = new JPanel();
 			B = new JPanel(new GridLayout(3,3));
 			C = new JPanel(new GridLayout(6,1));
@@ -67,16 +70,22 @@ public class TicTacToeGUI extends JFrame{
 			Play = new JButton("Play");
 			Reset = new JButton("Reset");
 			Quit = new JButton("Quit");
-			
+			Play.addActionListener(this);
+			Reset.addActionListener(this);
+			Quit.addActionListener(this);
 			C.add(c1);C.add(c2);C.add(c3);C.add(c4);C.add(c5);C.add(c6);
-			String scorename = "Test";
+			scorename = "Null";
 			Name = new JLabel("Player Name: ");
 			select = new JLabel("Select:");
 			score = new JLabel("Score");
-			scoreName = new JLabel("scoreName("+scorename+")");
+			
+			nameField = new JTextField(15);
+			nameField.setFont(ScoreFont);
+
+			scoreName = new JLabel("Player("+scorename+")");
 			AIscore = new JLabel("Computer:           ");
 			GameName = new JLabel("X-O Game");
-			
+	
 			Name.setFont(Fonts);
 			select.setFont(Fonts);
 			score.setFont(ScoreFont);
@@ -86,8 +95,8 @@ public class TicTacToeGUI extends JFrame{
 			
 			nameField = new JTextField(15);
 			nameField.setFont(ScoreFont);
-			scoreNameField = new JTextField("",12);
-			scodreAIField= new JTextField("",12);	
+			scoreNameField = new JTextField("0",12);
+			scodreAIField= new JTextField("0",12);	
 			scodreAIField.setFont(ScoreFont);
 			scoreNameField.setFont(ScoreFont);
 			scodreAIField.setEditable(false);
@@ -111,18 +120,45 @@ public class TicTacToeGUI extends JFrame{
 			add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
 			add(C,BorderLayout.EAST);
-			
+	
 		 	for(int i = 0 ; i< 3 ; i++) {
 		 		for(int j = 0 ; j< 3 ; j++) {
-		 			buttons[i][j]=new JButton("X");		 			
-			 		B.add(buttons[i][j]);			 					 		
-			 	}	
+		 			buttons[i][j]=new JButton("");		 			
+			 		B.add(buttons[i][j]);	
+			 	//	buttons[i][j].setBackground(Color.decode("#222023"));
+			 		buttons[i][j].addActionListener(this);
+		 		}	
 		 	}
 		 	setVisible(true);
 		}	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.print("hi Ameed");
 		new TicTacToeGUI();
+	}
+		
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		 scorename = nameField.getText();
+		if(e.getSource() == Play ) {	
+			scoreName.setText("Player("+scorename+")");
+			}	
+		if(e.getSource() == Reset ) {			
+			if( JOptionPane.showConfirmDialog(this, "Do you want to Reset the Game and start over?", "Reset Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
+				scoreNameField.setText("0");
+				scodreAIField.setText("0");
+				nameField.setText("");
+				scoreName.setText("Player("+")");
+				O.setSelected(false);
+				X.setSelected(true);
+			}
+		}
+		if(e.getSource() == Quit ) {		
+			if( JOptionPane.showConfirmDialog(this, "Do you want to quit the game and lose your progress?", "Exit Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
+				System.exit(0);
+			}	
+		}
 	}
 }
