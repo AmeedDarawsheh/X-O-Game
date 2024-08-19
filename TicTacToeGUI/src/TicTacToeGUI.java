@@ -1,27 +1,47 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-
 public class TicTacToeGUI extends JFrame{
-		final  int x =1280,y=720 ;
-		final  int x1 =600,y1=400 ;
+		private final  int x =1280,y=720 ;
+		private final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
-		JPanel A,B,C,c1,c2,c3,c4,c5,c6;
-		JLabel GameName,Name, select,score,scoreName,AIscore;
-		JTextField nameField,scoreNameField,scodreAIField;
-		JRadioButton X,O;
-		ButtonGroup group;
-		JButton Play,Reset,Quit;
-	 	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);
-	 	Font Fonts = new Font("labelFont",Font.BOLD,13);
-	 	Font ScoreFont = new Font("labelFont",Font.BOLD,15);
+		private	JPanel A,B,C,c1,c2,c3,c4,c5,c6;
+		private JLabel GameName,Name, select,score,scoreName,AIscore;
+		private JTextField nameField,scoreNameField,scodreAIField;
+		private JRadioButton X,O;
+		private ButtonGroup group;
+		private JButton Play,Reset,Quit;
+		private	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);
+		private	Font Fonts = new Font("labelFont",Font.BOLD,13);
+		private	Font ScoreFont = new Font("labelFont",Font.BOLD,15);
+		private	JMenuBar menuBar;
+		private JMenu menuFile,menuhelp,menuEdit;
+		private JMenuItem Hard,Easy,Medium;
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
 		 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 	setSize(x1,y1);
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
+//Bar
+		 	menuBar= new JMenuBar();
+			Hard = new  JMenuItem("Hard");
+			Easy = new  JMenuItem("Easy");
+			Medium = new  JMenuItem("Medium");
 			
+			menuFile = new JMenu("Difficulty Levels");
+			menuhelp = new JMenu("help");
+			menuEdit = new JMenu("Preferences");
+			
+			menuFile.add(Hard);
+			menuFile.add(Medium);
+			menuFile.add(Easy);
+
+			menuBar.add(menuFile);
+			menuBar.add(menuEdit);
+			menuBar.add(menuhelp);	
+			setJMenuBar(menuBar);
+	 	
 		 	A = new JPanel();
 			B = new JPanel(new GridLayout(3,3));
 			C = new JPanel(new GridLayout(6,1));
