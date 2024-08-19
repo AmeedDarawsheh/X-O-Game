@@ -22,7 +22,7 @@ public class TicTacToeGUI extends JFrame{
 		 	setSize(x1,y1);
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
-			
+			////
 		 	A = new JPanel();
 			B = new JPanel(new GridLayout(3,3));
 			C = new JPanel(new GridLayout(6,1));
