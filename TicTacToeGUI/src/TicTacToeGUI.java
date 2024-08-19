@@ -6,7 +6,6 @@ public class TicTacToeGUI extends JFrame{
 		final  int x =1280,y=720 ;
 		final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
-		//private JButton buttonss [][] =new JButton[3][3];
 		JPanel A,B,C,c1,c2,c3,c4,c5,c6;
 		JLabel GameName,Name, select,score,scoreName,AIscore;
 		JTextField nameField,scoreNameField,scodreAIField;
@@ -22,7 +21,7 @@ public class TicTacToeGUI extends JFrame{
 		 	setSize(x1,y1);
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
-			////
+			
 		 	A = new JPanel();
 			B = new JPanel(new GridLayout(3,3));
 			C = new JPanel(new GridLayout(6,1));
@@ -69,6 +68,8 @@ public class TicTacToeGUI extends JFrame{
 			nameField.setFont(ScoreFont);
 			scoreNameField = new JTextField("",12);
 			scodreAIField= new JTextField("",12);	
+			scodreAIField.setFont(ScoreFont);
+			scoreNameField.setFont(ScoreFont);
 			scodreAIField.setEditable(false);
 			scoreNameField.setEditable(false);
 			
