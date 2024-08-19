@@ -1,140 +1,103 @@
-import java.awt.*;
 import javax.swing.*;
-@SuppressWarnings("serial")
+import java.awt.*;
+import java.util.*;
+
 public class TicTacToeGUI extends JFrame{
 		final  int x =1280,y=720 ;
+		final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
 		//private JButton buttonss [][] =new JButton[3][3];
-		JLabel namel,playerscorel,computerscorel;		
-		JPanel l1 ;
-		JPanel l2  ;
-		JPanel l3  ;
-		JPanel l4  ;
-		JPanel l5  ;
-		JPanel l6  ;
-	
-		JLabel label ;
-		
-		JPanel A ;
-	 	JPanel B ;
-	 	JPanel C ;
-	
-	 	JTextField name ;
-	 	JTextField playerscore;
-	 	JTextField computerscore;
-	
-	 	JButton play ;
-	 	JButton reset;
-	 	JButton Quit ;	
-	
-	 	JRadioButton xg ;
-	 	JRadioButton o ;
-	 	ButtonGroup group ;
-	
-	 	JPanel inner ;
-	
-	 	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);		
+		JPanel A,B,C,c1,c2,c3,c4,c5,c6;
+		JLabel GameName,Name, select,score,scoreName,AIscore;
+		JTextField nameField,scoreNameField,scodreAIField;
+		JRadioButton X,O;
+		ButtonGroup group;
+		JButton Play,Reset,Quit;
+	 	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);
+	 	Font Fonts = new Font("labelFont",Font.BOLD,13);
+	 	Font ScoreFont = new Font("labelFont",Font.BOLD,15);
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
 		 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 	setVisible(true);
-		 	setSize(x,y);
+		 	setSize(x1,y1);
 		 	setMinimumSize(getSize());
-			// 	JFrame c;
-		 	setResizable(false); 		
-			//setLayout(new FlowLayout());
-			 label = new JLabel ("XO-Game");
-			 label.setFont(labelFont);
-			 A = new JPanel () ;		
-			 A.add(label);
-			 B = new JPanel () ;
-			 C = new JPanel () ;
-			 inner = new JPanel();
-			 B.setLayout(new GridLayout(3,3));		 
-			 
-			  l1 = new JPanel () ;
-			  l2 = new JPanel () ;
-			  l3 = new JPanel () ;
-			  l4 = new JPanel () ;
-			  l5 = new JPanel () ;
-			  l6 = new JPanel () ;
-	 
-			 namel = new JLabel("Name");
-			 playerscorel = new JLabel("playerscore");
-			 computerscorel = new JLabel("computerscore");
-			 name = new JTextField(15);
-			 playerscore = new JTextField(15);
-			 computerscore = new JTextField(15);
-			 l1.add(namel);
-			 l1.add(name);
-			 l5.add(playerscorel);
-			 l5.add(playerscore);
-			 l6.add(computerscorel);
-			 l6.add(computerscore);
- 
-			 play = new JButton ("play");
-			 reset = new JButton ("reset");
-			 Quit = new JButton ("Quit");
-			 l3.setLayout(new GridLayout(1,3));
-			 l3.add(play);
-			 l3.add(reset);
-			 l3.add(Quit);
-			 C.add(l1);
-			//  C.add(l3);
-			 C.add(l5);
-			 C.add(l6);		
-//			namel = new JLabel("Name");
-//			playerscorel = new JLabel("playerscore");
-//			computerscorel = new JLabel("computerscore");p
-//		 	
-//		 	name = new JTextField(15);
-//		 	playerscore = new JTextField(15);
-//		 	playerscore.setEditable(false);
-//		 	computerscore = new JTextField(15);
-//		 	computerscore.setEditable(false);
-//		 	
-//		 	
-//		 	namep = new JPanel () ;
-//		 	namep.add(namel);
-//		 	namep.add(name);
-//		 	playerscorep = new JPanel () ;
-//		 	playerscorep.add(playerscorel);
-//		 	playerscorep.add(playerscore);
-//		 	computerscorep = new JPanel () ;
-//		 	computerscorep.add(computerscorel);
-//		 	computerscorep.add(computerscore);		 			 	
-//		 	play = new JButton ("play");
-//		 	reset = new JButton ("reset");
-//		 	Quit = new JButton ("Quit");	
-//		 	inner.setLayout(new GridLayout(1,3));
-//		 	inner.add(play);
-//		 	inner.add(reset);
-//		 	inner.add(Quit);
-		 	//C.add(inner);
-		 	//C.setLayout(new FlowLayout());
-//		 	xg = new  JRadioButton("x");
-//		 	o = new  JRadioButton("o");
-//		 	group = new ButtonGroup();
-//		 	group.add(xg);
-//		 	group.add(o);		 	
-//		 	C.add(namep);
-//		 	C.add(xg);
-//		 	C.add(o);
-//		 	C.add(play);
-//		 	C.add(reset);
-//		 	C.add(Quit);
-//		 	C.add(playerscorep);
-//		 	C.add(computerscorep);
-		 	add(A,BorderLayout.NORTH);
+		 	setResizable(false); 	
+			
+		 	A = new JPanel();
+			B = new JPanel(new GridLayout(3,3));
+			C = new JPanel(new GridLayout(6,1));
+			c1= new JPanel();
+			c2= new JPanel();
+			c3= new JPanel();
+			c4= new JPanel();
+			c5= new JPanel();
+			c6= new JPanel();
+			
+			c1.setLayout(new FlowLayout());
+			c2.setLayout(new FlowLayout());
+			c3.setLayout(new FlowLayout());
+			c4.setLayout(new FlowLayout());
+			c5.setLayout(new FlowLayout());
+			c6.setLayout(new FlowLayout());
+			
+			O = new JRadioButton("O");
+			X = new JRadioButton("X");
+			group = new ButtonGroup();
+			group.add(O);group.add(X);
+			
+			Play = new JButton("Play");
+			Reset = new JButton("Reset");
+			Quit = new JButton("Quit");
+			
+			C.add(c1);C.add(c2);C.add(c3);C.add(c4);C.add(c5);C.add(c6);
+			String scorename = "Test";
+			Name = new JLabel("Player Name: ");
+			select = new JLabel("Select:");
+			score = new JLabel("Score");
+			scoreName = new JLabel("scoreName("+scorename+")");
+			AIscore = new JLabel("Computer:           ");
+			GameName = new JLabel("X-O Game");
+			
+			Name.setFont(Fonts);
+			select.setFont(Fonts);
+			score.setFont(ScoreFont);
+			scoreName.setFont(Fonts);
+			AIscore.setFont(Fonts);	
+			GameName.setFont(labelFont);
+			
+			nameField = new JTextField(15);
+			nameField.setFont(ScoreFont);
+			scoreNameField = new JTextField("",12);
+			scodreAIField= new JTextField("",12);	
+			scodreAIField.setEditable(false);
+			scoreNameField.setEditable(false);
+			
+			A.add(GameName);
+			c1.add(Name);
+			c1.add(nameField);
+			c2.add(select);
+			c2.add(X);
+			c2.add(O);
+			c3.add(Play);
+			c3.add(Reset);
+			c3.add(Quit);
+			c4.add(score);
+			c5.add(scoreName);
+			c5.add(scoreNameField);
+			c6.add(AIscore);	
+			c6.add(scodreAIField);	
+			
+			add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
-			add(C,BorderLayout.EAST);			
+			add(C,BorderLayout.EAST);
+			
 		 	for(int i = 0 ; i< 3 ; i++) {
 		 		for(int j = 0 ; j< 3 ; j++) {
-		 			buttons[i][j]=new JButton("1");		 			
+		 			buttons[i][j]=new JButton("X");		 			
 			 		B.add(buttons[i][j]);			 					 		
 			 	}	
 		 	}
-	 	
+		 	setVisible(true);
 		}	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
