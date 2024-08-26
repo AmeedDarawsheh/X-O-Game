@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.*;
 public class TicTacToeGUI extends JFrame implements ActionListener{
 		private final  int x =1280,y=720 ;
@@ -19,7 +21,8 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private	JMenuBar menuBar;
 		private JMenu menuFile,menuhelp,menuEdit;
 		private JMenuItem Hard,Easy,Medium;
-		private String scorename;	
+		private String scorename;
+		private boolean isSelectX = false ;
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
 		 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +66,20 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			c6.setLayout(new FlowLayout());
 			
 			O = new JRadioButton("O");
+			O.addItemListener( new ItemListener() {
+
+				@Override
+				public void itemStateChanged(ItemEvent e) {
+					isSelectX= false ;
+				}} );
+			
 			X = new JRadioButton("X");
+			X.addItemListener( new ItemListener() {
+				@Override
+				public void itemStateChanged(ItemEvent e) {
+					isSelectX= true ;
+				}} );
+			
 			group = new ButtonGroup();
 			group.add(O);group.add(X);
 			
@@ -137,7 +153,8 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		System.out.print("hi Ameed");
 		new TicTacToeGUI();
 	}
-		
+
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -155,10 +172,21 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 				X.setSelected(true);
 			}
 		}
-		if(e.getSource() == Quit ) {		
+		if(e.getSource() == Quit ){		
 			if( JOptionPane.showConfirmDialog(this, "Do you want to quit the game and lose your progress?", "Exit Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
 				System.exit(0);
 			}	
 		}
+	    for (int i = 0; i < 3; i++)
+	      for (int j = 0; j < 3; j++)
+	        if (buttons[i][j] == e.getSource())
+	        {
+	        	if(buttons[i][j].getText()== "") {
+		        	if(isSelectX==true) {
+		        	buttons[i][j].setText("X");		        	
+		        	}
+		        	else buttons[i][j].setText("O");
+	        	}
+	        }
 	}
 }
