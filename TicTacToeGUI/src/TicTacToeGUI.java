@@ -18,6 +18,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);
 		private	Font Fonts = new Font("labelFont",Font.BOLD,13);
 		private	Font ScoreFont = new Font("labelFont",Font.BOLD,15);
+		private	Font XO = new Font("labelFont",Font.BOLD,20);
 		private	JMenuBar menuBar;
 		private JMenu menuFile,menuhelp,menuEdit;
 		private JMenuItem Hard,Easy,Medium;
@@ -143,6 +144,8 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			 		B.add(buttons[i][j]);	
 			 	//	buttons[i][j].setBackground(Color.decode("#222023"));
 			 		buttons[i][j].addActionListener(this);
+			 		buttons[i][j].setFont(XO);
+			 		buttons[i][j].setEnabled(false);
 		 		}	
 		 	}
 		 	setVisible(true);
@@ -161,6 +164,17 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		 scorename = nameField.getText();
 		if(e.getSource() == Play ) {	
 			scoreName.setText("Player("+scorename+")");
+			X.setEnabled(false);
+			O.setEnabled(false);
+			nameField.setEditable(false);
+			Play.setEnabled(false);
+			for(int t = 0 ;t < 3 ; t++) {
+				for(int y = 0 ;y < 3 ; y++) {
+					//buttons[t][y].setText("");
+					buttons[t][y].setEnabled(true);
+				}
+			}
+			
 			}	
 		if(e.getSource() == Reset ) {			
 			if( JOptionPane.showConfirmDialog(this, "Do you want to Reset the Game and start over?", "Reset Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
@@ -170,6 +184,16 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 				scoreName.setText("Player("+")");
 				O.setSelected(false);
 				X.setSelected(true);
+				X.setEnabled(true);
+				O.setEnabled(true);
+				nameField.setEditable(true);
+				Play.setEnabled(true);
+				for(int o = 0 ;o < 3 ; o++) {
+					for(int d = 0 ;d < 3 ; d++) {
+						buttons[o][d].setText("");
+						buttons[o][d].setEnabled(false);
+					}
+				}
 			}
 		}
 		if(e.getSource() == Quit ){		
