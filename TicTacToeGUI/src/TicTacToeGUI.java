@@ -27,7 +27,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private boolean isSelectX;
 		private boolean AISelect;
 		private boolean playerIN  ;	
-		private	int choiseLevel = 3;
+		private	int choiseLevel = 3,countEdit=0;
 		private	Random l  = new  Random();
 		char AICoice ;	
 		
@@ -193,11 +193,14 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 	
 	
 	
-	
-	
-	
-	
-	
+	void resetgame() {
+		for (int q = 0; q < 3; q++)
+		      for (int q1 = 0; q1 < 3; q1++) {
+		    	  editable[q][q1] = true;
+		    	  buttons[q][q1].setText("");        			    	  
+		   }
+	}
+
 	
 	void Start(int x , char s) {
 		AISelect = !isSelectX;
@@ -217,7 +220,12 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			 System.out.println("Med"); 
 		 }
 		 if (x==3) {
-			 System.out.println(""+s);
+			 int xrandx=l.nextInt(3),yrandy=l.nextInt(3);			 
+			 if(editable[xrandx][yrandy]==true) {
+				 buttons[xrandx][yrandy].setText(""+s);
+			 }
+			 else Start( x,s);		 
+			// System.out.println(""+s);
 		 }
 	}
 	@Override
@@ -268,6 +276,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 				System.exit(0);
 			}	
 		}
+		
 	    for (int i = 0; i < 3; i++)
 	      for (int j = 0; j < 3; j++)
 	        if (buttons[i][j] == e.getSource())
@@ -275,22 +284,24 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 	        	if(buttons[i][j].getText()== "" && editable[i][j]) {
 		        	if(isSelectX==true) {
 		        		buttons[i][j].setText("X");	
-		        		Start(choiseLevel ,'O');
 		        		editable[i][j]=false;
+		        		Start(choiseLevel ,'O');		        		
 		        	}
 		        	else if (isSelectX==false) {
 		        		buttons[i][j].setText("O");
-		        		Start(choiseLevel ,'X');
-		        		editable[i][j]=false;
+		        		editable[i][j]=false;	        		
+		        		Start(choiseLevel ,'X');		        		
 		        		}
-	        	}
-	        	
+	        	}        	
 	        	if(!(editable[0][j]&&editable[0][j]&&editable[0][j]||
 	        		 editable[1][j]&&editable[1][j]&&editable[1][j]||
 	        		 editable[2][j]&&editable[2][j]&&editable[2][j])){
+	        // fix it 
 	        		if(buttons[i][j].getText()== "X" && isSelectX||buttons[i][j].getText()== "O" && !isSelectX ) {
+	        			resetgame();
 	        			scorePlaye+=1;
-	        			scoreNameField.setText(""+scorePlaye);
+	        			scoreNameField.setText(""+scorePlaye);	        			
+        					        			
 	        			}
 	        		else {
 	        			scoreAI+=1;
@@ -302,8 +313,10 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 	        		 editable[i][2]&&editable[i][2]&&editable[i][2])) {
 	        		if( buttons[i][j].getText()== "X" && isSelectX ||
 	        			buttons[i][j].getText()== "O" && !isSelectX ) {
+	        			resetgame();
 	        			scorePlaye+=1;
-	        			scoreNameField.setText(""+scorePlaye);
+	        			scoreNameField.setText(""+scorePlaye);	        			
+	        				     	        			      			
 	        			}
 	        		else {
 	        			scoreAI+=1;
@@ -311,18 +324,31 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 	        		}
 	        	}
 	     // TODO fix it
-	        	if(!(editable[0][0]&&editable[1][1]&&editable[2][2]||
-		        	 editable[2][0]&&editable[1][1]&&editable[0][2])) {
+	        	if((editable[0][0]== false && editable [1][1]== false && editable[2][2]== false ||
+		        		 editable[0][2]== false&&editable[1][1]== false&&editable[2][0]== false
+		        		 )) {
 		        		if( buttons[i][j].getText()== "X" && isSelectX ||
 		        			buttons[i][j].getText()== "O" && !isSelectX ) {
+		        			resetgame();
 		        			scorePlaye+=1;
-		        			scoreNameField.setText(""+scorePlaye);
+		        			scoreNameField.setText(""+scorePlaye);	        			
+		        			
 		        			}
 		        		else {
 		        			scoreAI+=1;
 		    				scodreAIField.setText(""+scoreAI);
 		        		}
 		        	}
+	        	
+	        	
+	        	
+	        		if(editable[i][j] == false) {
+	        			countEdit++;
+	        		}	        		 		
+	        		if(countEdit==9) {
+	        			resetgame();   			
+	        			// no win no lose 
+	        		}        		        		        	
 	        }
 	}
 }
