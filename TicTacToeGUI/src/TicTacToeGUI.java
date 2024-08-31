@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.util.*;
+@SuppressWarnings("serial")
 public class TicTacToeGUI extends JFrame implements ActionListener{
-		private final  int x =1280,y=720 ;
+	//	private final  int x =1280,y=720 ;
 		private final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
 		private	JPanel A,B,C,c1,c2,c3,c4,c5,c6;
@@ -26,11 +24,10 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private int scoreAI = 0 ,scorePlaye = 0;
 		private boolean isSelectX;
 		private boolean AISelect;
-		private boolean playerIN  ;	
-		private	int choiseLevel = 3,countEdit=0;
+		//private boolean playerIN  ;	
+		private	int choiseLevel = 3,moveCount=0;
 		private	Random l  = new  Random();
-		char AICoice ;	
-		
+		char AICoice ;		
 		private boolean editable [][] =new boolean[3][3];
 		public TicTacToeGUI() {	
 			super("Tic-Tac-Toe");
@@ -39,7 +36,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
 		 	setLocationRelativeTo(null);
-		 	//Bar
+	//Bar
 		 	menuBar= new JMenuBar();
 			Hard = new  JMenuItem("Hard");
 			Easy = new  JMenuItem("Easy");
@@ -58,27 +55,10 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			menuBar.add(menuhelp);	
 			setJMenuBar(menuBar);
 			
-			Hard.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					choiseLevel = 1;
-				//	Start(1);
-				}});
-			Medium.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					choiseLevel = 2;
-				//	Start(2);
-				}});
-			Easy.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub	
-					choiseLevel = 3;
-				//	Start(3);
-				}});		
+			Hard.addActionListener(e -> choiseLevel  = 1 );
+			Medium.addActionListener(e -> choiseLevel  = 2 );
+			Easy.addActionListener(e -> choiseLevel  = 3 );	
+			
 		 	A = new JPanel();
 			B = new JPanel(new GridLayout(3,3));
 			C = new JPanel(new GridLayout(6,1));
@@ -97,19 +77,10 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			c6.setLayout(new FlowLayout());
 			
 			O = new JRadioButton("O");
-			O.addItemListener( new ItemListener() {
-
-				@Override
-				public void itemStateChanged(ItemEvent e) {
-					isSelectX= false ;
-				}} );
+			O.addItemListener( e -> isSelectX = false );
 			
 			X = new JRadioButton("X");
-			X.addItemListener( new ItemListener() {
-				@Override
-				public void itemStateChanged(ItemEvent e) {
-					isSelectX= true ;
-				}} );
+			X.addItemListener( e -> isSelectX = true);
 			
 			group = new ButtonGroup();
 			group.add(O);group.add(X);
@@ -132,7 +103,6 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			scoreName = new JLabel("Player("+scorename+")");
 			AIscore = new JLabel("Computer:           ");
 			GameName = new JLabel("X-O Game");
-	
 			
 			Name.setFont(Fonts);
 			select.setFont(Fonts);
@@ -168,13 +138,12 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			add(A,BorderLayout.NORTH);
 			add(B,BorderLayout.CENTER);
 			add(C,BorderLayout.EAST);
-	
 			
 		 	for(int i = 0 ; i< 3 ; i++) {
 		 		for(int j = 0 ; j< 3 ; j++) {
 		 			buttons[i][j]=new JButton("");		 			
 			 		B.add(buttons[i][j]);	
-			 	//	buttons[i][j].setBackground(Color.decode("#222023"));
+			 		buttons[i][j].setBackground(Color.white);
 			 		buttons[i][j].addActionListener(this);
 			 		buttons[i][j].setFont(XO);
 			 		buttons[i][j].setEnabled(false);
@@ -183,25 +152,20 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		 	}
 		 	setVisible(true);
 		}	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.print("hi Ameed");
 		new TicTacToeGUI();
-	}
-
-	
-	
-	
+	}	
 	void resetgame() {
+		moveCount=0;
 		for (int q = 0; q < 3; q++)
 		      for (int q1 = 0; q1 < 3; q1++) {
-		    	  editable[q][q1] = true;
-		    	  buttons[q][q1].setText("");        			    	  
+		    	editable[q][q1] = true;
+		    	buttons[q][q1].setText(""); 
+		    	buttons[q][q1].setEnabled(true);
+		    	buttons[q][q1].setBackground(Color.white);
 		   }
 	}
-
-	
 	void Start(int x , char s) {
 		AISelect = !isSelectX;
 		if(AISelect == false ) {
@@ -209,25 +173,65 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		 }
 		 if(AISelect == true ) {
 			 AICoice = 'X';
-		 }	
-		 
-		 
-		 
+		 }			 		 		 
 		 if (x==1) {
-			System.out.println("Hard");			
+			System.out.println("Hard");		
 		 }
 		 if (x==2) {
-			 System.out.println("Med"); 
+			 System.out.println("Med");
 		 }
 		 if (x==3) {
-			 int xrandx=l.nextInt(3),yrandy=l.nextInt(3);			 
-			 if(editable[xrandx][yrandy]==true) {
-				 buttons[xrandx][yrandy].setText(""+s);
-			 }
-			 else Start( x,s);		 
-			// System.out.println(""+s);
-		 }
+			int xrandx,yrandy;
+			do{
+			xrandx=l.nextInt(3);
+			yrandy=l.nextInt(3);				
+			}while(!editable[xrandx][yrandy]);			 
+			buttons[xrandx][yrandy].setText("" +s);
+            editable[xrandx][yrandy] = false;
+            moveCount++;			 	 
+		 }		
 	}
+	boolean checkWin(char player){
+	for(int  i = 0 ; i < 3 ; i ++ ){
+		 if ((buttons[i][0].getText().equals("" + player)) &&
+		     (buttons[i][1].getText().equals("" + player)) &&
+		     (buttons[i][2].getText().equals("" + player)) ||
+		     (buttons[0][i].getText().equals("" + player)) &&
+		     (buttons[1][i].getText().equals("" + player)) &&
+		     (buttons[2][i].getText().equals("" + player))
+				 ){
+			 if(buttons[i][0].getText().equals("" + player)) {
+				 buttons[i][0].setBackground(Color.green);
+				 buttons[i][1].setBackground(Color.green);
+				 buttons[i][2].setBackground(Color.green);
+			 }
+			 else if((buttons[0][i].getText().equals("" + player))) { 
+			buttons[0][i].setBackground(Color.green);
+			buttons[1][i].setBackground(Color.green);
+			buttons[2][i].setBackground(Color.green);}
+			 return true ;}
+	}
+		 if ((buttons[0][0].getText().equals("" +player)) &&
+		     (buttons[1][1].getText().equals("" +player)) &&
+		     (buttons[2][2].getText().equals("" +player)) ||
+		     (buttons[2][0].getText().equals("" +player)) &&
+		     (buttons[1][1].getText().equals("" +player)) &&
+		     (buttons[0][2].getText().equals("" +player))
+				){
+			 if((buttons[0][0].getText().equals("" +player))) {
+				 buttons[0][0].setBackground(Color.green);
+				 buttons[1][1].setBackground(Color.green);
+				 buttons[2][2].setBackground(Color.green);
+			 }
+			 else if(buttons[2][0].getText().equals(""+player)) {
+				 buttons[2][0].setBackground(Color.green);
+				 buttons[1][1].setBackground(Color.green);
+				 buttons[0][2].setBackground(Color.green);
+			 }
+			 return true ;
+			 }
+		return false ;
+}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -239,16 +243,17 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			nameField.setEditable(false);
 			Play.setEnabled(false);
 			DifficultyLevels.setEnabled(false);
-			playerIN = true ;
 			for(int t = 0 ;t < 3 ; t++) {
 				for(int y = 0 ;y < 3 ; y++) {
 					//buttons[t][y].setText("");
 					buttons[t][y].setEnabled(true);
 				}								
-			}			
+			}
+			return;
 		}	
-		if(e.getSource() == Reset ) {			
+		else if(e.getSource() == Reset ) {		
 			if( JOptionPane.showConfirmDialog(this, "Do you want to Reset the Game and start over?", "Reset Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
+				resetgame();
 				scoreNameField.setText("0");
 				scodreAIField.setText("0");
 				nameField.setText("");
@@ -262,130 +267,55 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 				DifficultyLevels.setEnabled(true);
 				scorePlaye= 0 ;
 				scoreAI= 0 ;
-				for(int o = 0 ;o < 3 ; o++) {
-					for(int d = 0 ;d < 3 ; d++) {
-						buttons[o][d].setText("");
-						buttons[o][d].setEnabled(false);
-						editable[o][d]=true;
+				for (int q = 0; q < 3; q++)
+				      for (int q1 = 0; q1 < 3; q1++) {
+				    	buttons[q][q1].setEnabled(false);
+				   }				
+			}
+			return;
+		}
+		else if(e.getSource() == Quit ){		
+			if( JOptionPane.showConfirmDialog(this, "Do you want to quit the game and lose your progress?", "Exit Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
+				System.exit(0);
+			}
+			return;
+		}
+	else {
+	    for (int i = 0; i < 3; i++) {
+	      for (int j = 0; j < 3; j++) {
+	        if (buttons[i][j] == e.getSource() && editable[i][j])
+	        { 	buttons[i][j].setText(isSelectX ? "X" : "O");
+                        editable[i][j] = false;
+                        moveCount++;
+	        	       			
+                        if(checkWin(isSelectX ? 'X' : 'O')) {
+                        	scorePlaye++;
+                            JOptionPane.showMessageDialog(null, nameField.getText()+" wins!");
+                            scoreNameField.setText("" + scorePlaye);
+                            resetgame();
+                            return;
+	        		}
+	        			if (moveCount == 9) {
+                            JOptionPane.showMessageDialog(null, "NO One Win !");
+                            resetgame();
+                            return;
+                        }
+	        			Start(choiseLevel, AICoice);
+                        if (checkWin(AICoice)) {
+                            scoreAI++;
+                            JOptionPane.showMessageDialog(null, "AI wins!");
+                            scodreAIField.setText("" + scoreAI);
+                            resetgame();
+                            return;
+                        }
+                        if (moveCount == 9) {
+                            JOptionPane.showMessageDialog(null, "NO One Win !");
+                            resetgame();
+                            return;
+                        } 
 					}
 				}
 			}
-		}
-		if(e.getSource() == Quit ){		
-			if( JOptionPane.showConfirmDialog(this, "Do you want to quit the game and lose your progress?", "Exit Game", JOptionPane.OK_CANCEL_OPTION) == 0) {
-				System.exit(0);
-			}	
-		}
-		
-	    for (int i = 0; i < 3; i++)
-	      for (int j = 0; j < 3; j++)
-	        if (buttons[i][j] == e.getSource())
-	        {
-	        	if(buttons[i][j].getText()== "" && editable[i][j]) {
-		        	if(isSelectX==true) {
-		        		buttons[i][j].setText("X");	
-		        		editable[i][j]=false;
-		        		Start(choiseLevel ,'O');		        		
-		        	}
-		        	else if (isSelectX==false) {
-		        		buttons[i][j].setText("O");
-		        		editable[i][j]=false;	        		
-		        		Start(choiseLevel ,'X');		        		
-		        		}
-	        	}        	
-	        	if(!(editable[0][j]&&editable[0][j]&&editable[0][j]||
-	        		 editable[1][j]&&editable[1][j]&&editable[1][j]||
-	        		 editable[2][j]&&editable[2][j]&&editable[2][j])){
-	        // fix it 
-	        		if(buttons[i][j].getText()== "X" && isSelectX||buttons[i][j].getText()== "O" && !isSelectX ) {
-	        			resetgame();
-	        			scorePlaye+=1;
-	        			scoreNameField.setText(""+scorePlaye);	        			
-        					        			
-	        			}
-	        		else {
-	        			scoreAI+=1;
-	    				scodreAIField.setText(""+scoreAI);
-	        		}	        		
-	        	}
-	        	if(!(editable[i][0]&&editable[i][0]&&editable[i][0]||
-	        		 editable[i][1]&&editable[i][1]&&editable[i][1]||
-	        		 editable[i][2]&&editable[i][2]&&editable[i][2])) {
-	        		if( buttons[i][j].getText()== "X" && isSelectX ||
-	        			buttons[i][j].getText()== "O" && !isSelectX ) {
-	        			resetgame();
-	        			scorePlaye+=1;
-	        			scoreNameField.setText(""+scorePlaye);	        			
-	        				     	        			      			
-	        			}
-	        		else {
-	        			scoreAI+=1;
-	    				scodreAIField.setText(""+scoreAI);
-	        		}
-	        	}
-	     // TODO fix it
-	        	if((editable[0][0]== false && editable [1][1]== false && editable[2][2]== false ||
-		        		 editable[0][2]== false&&editable[1][1]== false&&editable[2][0]== false
-		        		 )) {
-		        		if( buttons[i][j].getText()== "X" && isSelectX ||
-		        			buttons[i][j].getText()== "O" && !isSelectX ) {
-		        			resetgame();
-		        			scorePlaye+=1;
-		        			scoreNameField.setText(""+scorePlaye);	        			
-		        			
-		        			}
-		        		else {
-		        			scoreAI+=1;
-		    				scodreAIField.setText(""+scoreAI);
-		        		}
-		        	}
-	        	
-	        	
-	        	
-	        		if(editable[i][j] == false) {
-	        			countEdit++;
-	        		}	        		 		
-	        		if(countEdit==9) {
-	        			resetgame();   			
-	        			// no win no lose 
-	        		}        		        		        	
-	        }
+	    }
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// win
-/*if ((board[0] + board[1] + board[2] == (whoseTurnItIs * 3)) // first row 
-   || (board[3] + board[4] + board[5] == (whoseTurnItIs * 3)) // second row
-   || (board[6] + board[7] + board[8] == (whoseTurnItIs * 3)) // third row
-   || (board[0] + board[3] + board[6] == (whoseTurnItIs * 3)) // first column
-   || (board[1] + board[4] + board[7] == (whoseTurnItIs * 3)) // second column
-   || (board[2] + board[5] + board[8] == (whoseTurnItIs * 3)) // third column
-   || (board[0] + board[4] + board[8] == (whoseTurnItIs * 3)) // first diagonal
-   || (board[2] + board[4] + board[6] == (whoseTurnItIs * 3)) // second diagonal
-) 
-{
-  printTheBoard(board);
-  System.out.println("You won!!! Congratulations!");
-  break;
-} else {
-  numberOfSquaresPlayed++;
-  whoseTurnItIs = (whoseTurnItIs == 'x') ? 'o' : 'x';
-} */
