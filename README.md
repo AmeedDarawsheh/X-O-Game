@@ -1,3 +1,9 @@
+
+![Screenshot 2024-11-16 200226](https://github.com/user-attachments/assets/8472b2ee-c82d-4b96-a439-fdc6f80b8149)
+![Screenshot 2024-11-16 20102![Screenshot 2024-11-16 200141](https://github.com/user-attachments/assets/6cc8a644-75b2-4481-9765-f8e87a53064e)
+8](https://github.com/user-attachments/assets/ff82172e-ea24-4b05-b224-65aae01a3508)
+
+
 # TicTacToeGUI
 # Abstract
 TicTacToeGUI is a Java-based graphical Tic-Tac-Toe game developed using the Swing framework. The game allows a single player to compete against an AI opponent with selectable difficulty levels (Easy, Medium, and Hard). Users can choose to play as either 'X' or 'O', track scores, and restart or quit the game at any time. The AI opponent logic adapts based on difficulty, providing a balanced challenge for the player. The game’s intuitive graphical interface makes it easy and enjoyable for users of all ages.
