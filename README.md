@@ -1,7 +1,10 @@
+![Screenshot 2024-11-16 201233](https://github.com/user-attachments/assets/db81e0ff-c1f7-44ee-8791-325ab4a5aef1)
 
-![Screenshot 2024-11-16 200226](https://github.com/user-attachments/assets/8472b2ee-c82d-4b96-a439-fdc6f80b8149)
-![Screenshot 2024-11-16 20102![Screenshot 2024-11-16 200141](https://github.com/user-attachments/assets/6cc8a644-75b2-4481-9765-f8e87a53064e)
-8](https://github.com/user-attachments/assets/ff82172e-ea24-4b05-b224-65aae01a3508)
+![Screenshot 2024-11-16 201028](https://github.com/user-attachments/assets/be293162-a7b6-4a1f-ae26-e254fdd7be8e)
+
+![Screenshot 2024-11-16 200226](https://github.com/user-attachments/assets/dcba889a-1273-496f-9ac6-485f5eadd38f)
+
+![Screenshot 2024-11-16 200141](https://github.com/user-attachments/assets/d87614ea-34f7-4b75-b885-2c40dc7e14fd)
 
 
 # TicTacToeGUI
