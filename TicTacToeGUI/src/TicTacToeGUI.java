@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.util.*;
 @SuppressWarnings("serial")
 public class TicTacToeGUI extends JFrame implements ActionListener{
-	//	private final  int x =1280,y=720 ;
+
 		private final  int x1 =600,y1=400 ;
 		private JButton buttons [][] =new JButton[3][3];
 		private	JPanel A,B,C,c1,c2,c3,c4,c5,c6;
@@ -24,7 +24,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private int scoreAI = 0 ,scorePlaye = 0;
 		private boolean isSelectX;
 		private boolean AISelect;
-		//private boolean playerIN  ;	
+
 		private	int choiseLevel = 3,moveCount=0;
 		private	Random l  = new  Random();
 		char AICoice ;		
@@ -36,7 +36,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		 	setMinimumSize(getSize());
 		 	setResizable(false); 	
 		 	setLocationRelativeTo(null);
-	//Bar
+
 		 	menuBar= new JMenuBar();
 			Hard = new  JMenuItem("Hard");
 			Easy = new  JMenuItem("Easy");
@@ -245,7 +245,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			DifficultyLevels.setEnabled(false);
 			for(int t = 0 ;t < 3 ; t++) {
 				for(int y = 0 ;y < 3 ; y++) {
-					//buttons[t][y].setText("");
+
 					buttons[t][y].setEnabled(true);
 				}								
 			}
