@@ -1,3 +1,5 @@
+## License
+This project is licensed under the [MIT License](LICENSE).
 # Overview
 
 ![Screenshot 2024-11-16 201233](https://github.com/user-attachments/assets/db81e0ff-c1f7-44ee-8791-325ab4a5aef1)
