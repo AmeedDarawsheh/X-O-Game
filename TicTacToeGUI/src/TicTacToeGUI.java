@@ -13,10 +13,11 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private JRadioButton X,O;
 		private ButtonGroup group;
 		private JButton Play,Reset,Quit;
-		private	Font labelFont = new Font("labelFont",Font.BOLD+Font.ITALIC,40);
-		private	Font Fonts = new Font("labelFont",Font.BOLD,13);
-		private	Font ScoreFont = new Font("labelFont",Font.BOLD,15);
-		private	Font XO = new Font("labelFont",Font.BOLD,20);
+		private String labelFont = "labelFont";
+		private	Font labelFont = new Font(labelFont,Font.BOLD+Font.ITALIC,40);
+		private	Font Fonts = new Font(labelFont,Font.BOLD,13);
+		private	Font ScoreFont = new Font(labelFont,Font.BOLD,15);
+		private	Font XO = new Font(labelFont,Font.BOLD,20);
 		private	JMenuBar menuBar;
 		private JMenu DifficultyLevels,menuhelp,Preferences;
 		private JMenuItem Hard,Easy,Medium;
