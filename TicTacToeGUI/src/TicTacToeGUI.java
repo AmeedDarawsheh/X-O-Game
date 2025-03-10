@@ -21,7 +21,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 		private	JMenuBar menuBar;
 		private JMenu DifficultyLevels,menuhelp,Preferences;
 		private JMenuItem Hard,Easy,Medium;
-		private String scorename;
+		private String scoreName;
 		private int scoreAI = 0 ,scorePlaye = 0;
 		private boolean isSelectX;
 		private boolean AISelect;
@@ -93,7 +93,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			Reset.addActionListener(this);
 			Quit.addActionListener(this);
 			C.add(c1);C.add(c2);C.add(c3);C.add(c4);C.add(c5);C.add(c6);
-			scorename = "Null";
+			scoreName = "Null";
 			Name = new JLabel("Player Name: ");
 			select = new JLabel("Select:");
 			score = new JLabel("Score");
@@ -101,7 +101,7 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 			nameField = new JTextField(15);
 			nameField.setFont(ScoreFont);
 
-			scoreName = new JLabel("Player("+scorename+")");
+			scoreName = new JLabel("Player("+scoreName+")");
 			AIscore = new JLabel("Computer:           ");
 			GameName = new JLabel("X-O Game");
 			
@@ -236,9 +236,9 @@ public class TicTacToeGUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		 scorename = nameField.getText();
+		 scoreName = nameField.getText();
 		if(e.getSource() == Play ) {	
-			scoreName.setText("Player("+scorename+")");
+			scoreName.setText("Player("+scoreName+")");
 			X.setEnabled(false);
 			O.setEnabled(false);
 			nameField.setEditable(false);
